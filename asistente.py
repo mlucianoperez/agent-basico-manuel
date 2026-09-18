@@ -33,9 +33,12 @@ class Asistente:
 
         return "No entendi tu mensaje."
 
-    def mostar_historial(self):
+    def mostrar_historial(self):
         for quien, texto in self.historial:
             print(f"{quien}: {texto}")
+
+    def mostar_historial(self):
+        self.mostrar_historial()
 
     def responder(self, mensaje):
         self.historial.append(("Usuario", mensaje))
