@@ -33,8 +33,12 @@ class Asistente:
 
         return "No entendi tu mensaje."
 
+    def mostar_historial(self):
+        for quien, texto in self.historial:
+            print(f"{quien}: {texto}")
+
     def responder(self, mensaje):
-        self.historial.append(mensaje)
+        self.historial.append(("Usuario", mensaje))
         mensaje_normalizado = mensaje.casefold()
 
         if any(palabra in mensaje_normalizado for palabra in ("adios", "salir", "chao")):
@@ -56,5 +60,5 @@ class Asistente:
         else:
             respuesta = self.buscar_faq(mensaje_normalizado)
 
-        self.historial.append(respuesta)
+        self.historial.append(("Asistente", respuesta))
         return respuesta
